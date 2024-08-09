@@ -7,6 +7,7 @@ import { Request, Response } from "express";
 
 const app = express();
 const port = process.env.PORT || 3000;
+console.log(port);
 
 const upload = multer({ dest: path.join(__dirname, "uploads") });
 

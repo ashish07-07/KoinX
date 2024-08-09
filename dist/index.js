@@ -10,6 +10,7 @@ const csv_parser_1 = __importDefault(require("csv-parser"));
 const fs_1 = __importDefault(require("fs"));
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
+console.log(port);
 const upload = (0, multer_1.default)({ dest: path_1.default.join(__dirname, "uploads") });
 app.post("/uploads", upload.single("file"), (req, res) => {
     console.log("Here is the field");

@@ -8,7 +8,7 @@ interface ITrade extends Document {
   userId: string;
   utcTime: string;
   operation: "Buy" | "Sell";
-  basecoin: string;
+  baseCoin: string;
   quotecoin: string;
   amount: number;
   price: number;

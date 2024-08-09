@@ -18,7 +18,7 @@ const path_1 = __importDefault(require("path"));
 const csv_parser_1 = __importDefault(require("csv-parser"));
 const fs_1 = __importDefault(require("fs"));
 const schema_1 = __importDefault(require("./db/schema"));
-// import { CreateChannelCallback } from "./../node_modules/@google-cloud/storage/build/cjs/src/bucket.d";
+const route_1 = __importDefault(require("./balenceroute/route"));
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
 console.log(port);
@@ -66,6 +66,7 @@ app.post("/uploads", upload.single("file"), (req, res) => {
         res.status(500).send("Error parsing CSV file");
     });
 });
+app.use("/balence", route_1.default);
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });

@@ -5,7 +5,7 @@ import csv from "csv-parser";
 import fs from "fs";
 import { Request, Response } from "express";
 import Trade from "./db/schema";
-
+import balancerouter from "./balenceroute/route";
 const app = express();
 const port = process.env.PORT || 3000;
 console.log(port);
@@ -39,6 +39,7 @@ app.post("/uploads", upload.single("file"), (req: Request, res: Response) => {
           return new Trade({
             userID: row.User_ID,
             utcTime: new Date(row.UTC_Time),
+
             operation: row.Operation,
             baseCoin,
             quoteCoin,
@@ -60,6 +61,8 @@ app.post("/uploads", upload.single("file"), (req: Request, res: Response) => {
       res.status(500).send("Error parsing CSV file");
     });
 });
+
+app.use("/balence", balancerouter);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);

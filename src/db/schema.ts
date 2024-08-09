@@ -1,5 +1,9 @@
 import mongoose, { Schema, Document } from "mongoose";
 
+mongoose.connect(
+  "mongodb+srv://bkashishh07:n639X8O6lwqR5Nfz@cluster0.irerf.mongodb.net/"
+);
+
 interface ITrade extends Document {
   userId: string;
   utcTime: string;

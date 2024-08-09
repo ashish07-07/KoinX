@@ -47,10 +47,6 @@ This project is an API service that calculates the asset-wise balance of an acco
    npm start
    ```
 
-   ```
-
-   ```
-
 ## Usage
 
 ### API Endpoint
